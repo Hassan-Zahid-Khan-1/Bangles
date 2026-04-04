@@ -1,194 +1,79 @@
-# BangleBelle - Exquisite Bangles for Every Occasion
+# BangleBelle — Next.js Frontend
 
-A modern Next.js e-commerce website for selling handcrafted bangles with beautiful UI, responsive design, and EmailJS integration for order confirmations.
+A stunning Gen-Z feminine bangles e-commerce website with 5 pages, video hero, animations, and Cash on Delivery orders sent to your email.
 
-## Features
+## Pages
+- **/** — Home (video hero, featured products, testimonials, stats)
+- **/shop** — Shop (filter by category, sort, product modal)
+- **/cart** — Cart + COD Checkout (order details emailed to you)
+- **/about** — About Us (story, values, team)
+- **/contact** — Contact form + FAQ
+- **/wishlist** — Saved items
 
-✨ **Modern Design**
-- Beautiful gradient backgrounds and smooth animations
-- Responsive grid layouts for all devices
-- Framer Motion animations
+## Setup
 
-🛍️ **E-Commerce Functionality**
-- Product catalog with filtering and sorting
-- Shopping cart with local storage
-- Wishlist feature
-- Product detail modal
-
-📧 **Email Integration**
-- EmailJS integration for order confirmations
-- Automated order emails to customers
-- Customizable email templates
-
-🎨 **UI Components**
-- Product cards with ratings and discounts
-- Navigation with active states
-- Footer with newsletter signup
-- Toast notifications
-
-## Tech Stack
-
-- **Framework**: Next.js 14
-- **Styling**: CSS with CSS-in-JS
-- **Animations**: Framer Motion
-- **Email Service**: EmailJS
-- **Deployment**: Vercel
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ (recommended)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/Hassan-Zahid-Khan-1/Bangles.git
-cd Bangles
-cd bangles-website
-```
-
-2. **Install dependencies**
+### 1. Install Dependencies
 ```bash
 npm install
 ```
 
-3. **Configure environment variables**
-Create a `.env.local` file in the `bangles-website` directory:
-```bash
-cp .env.example .env.local
+### 2. Configure EmailJS (to receive orders by email)
+
+Sign up free at https://www.emailjs.com
+
+1. Create a **Service** (Gmail recommended) → copy your **Service ID**
+2. Create an **Email Template** with these variables:
+   - `{{from_name}}` — customer name
+   - `{{customer_phone}}` — phone number  
+   - `{{customer_email}}` — customer email
+   - `{{delivery_address}}` — delivery address
+   - `{{order_items}}` — list of ordered items
+   - `{{grand_total}}` — total amount
+   - `{{notes}}` — order notes
+   - `{{message}}` — full order details
+   - Set **To Email**: hzk3903159@gmail.com
+3. Copy your **Template ID** and **Public Key**
+
+4. Open `pages/cart.js` and replace:
+```js
+service_id: 'YOUR_SERVICE_ID',    // e.g. 'service_abc123'
+template_id: 'YOUR_TEMPLATE_ID',  // e.g. 'template_xyz789'
+user_id: 'YOUR_PUBLIC_KEY',       // e.g. 'user_ABCDEF123456'
 ```
 
-Update the values with your EmailJS credentials:
-```
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_USER_ID=your_public_key
-```
+> **Fallback**: Even without EmailJS, the order form uses `mailto:` so it will open your email client pre-filled with the order. Works instantly with no setup!
 
-4. **Run development server**
+### 3. Run Development Server
 ```bash
 npm run dev
 ```
+Open http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## EmailJS Setup
-
-1. Go to [EmailJS Dashboard](https://dashboard.emailjs.com/)
-2. Create a new service (e.g., Gmail)
-3. Create an email template with these variables:
-   - `to_email`
-   - `from_name`
-   - `phone`
-   - `address`
-   - `items`
-   - `total`
-   - `notes`
-   - `message`
-4. Copy your Service ID, Template ID, and Public Key
-5. Add them to `.env.local`
-
-## Deployment on Vercel
-
-### One-Click Deploy
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHassan-Zahid-Khan-1%2FBangles&env=NEXT_PUBLIC_EMAILJS_SERVICE_ID,NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,NEXT_PUBLIC_EMAILJS_USER_ID)
-
-### Manual Deployment
-
-1. **Push to GitHub**
+### 4. Build for Production
 ```bash
-git push origin main
+npm run build
+npm start
 ```
 
-2. **Deploy on Vercel**
-   - Go to [Vercel](https://vercel.com)
-   - Click "New Project"
-   - Import your GitHub repository
-   - Framework: Next.js (auto-detected)
-   - Environment Variables: Add your EmailJS credentials
-   - Click Deploy
+## Hero Video
+The hero section uses a video from Coverr.co. If the video doesn't load (external URL), you can:
+1. Download a free video from https://coverr.co/s?q=jewelry
+2. Place it in `/public/videos/hero.mp4`
+3. Update the `src` in `pages/index.js`:
+   ```html
+   <source src="/videos/hero.mp4" type="video/mp4" />
+   ```
 
-3. **Set Environment Variables in Vercel**
-   - In Vercel Dashboard, go to Settings → Environment Variables
-   - Add:
-     - `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
-     - `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
-     - `NEXT_PUBLIC_EMAILJS_USER_ID`
-
-4. **Done!** Your site will be live at `https://your-project.vercel.app`
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-
-## Project Structure
-
-```
-bangles-website/
-├── pages/              # Next.js pages
-│   ├── index.js       # Homepage
-│   ├── shop.js        # Product shop page
-│   ├── cart.js        # Shopping cart
-│   ├── wishlist.js    # Wishlist page
-│   ├── contact.js     # Contact page
-│   ├── about.js       # About page
-│   └── _app.js        # App wrapper
-├── components/         # React components
-│   ├── Navbar.js      # Navigation
-│   ├── Footer.js      # Footer
-│   └── ProductCard.js # Product card
-├── data/              # Static data
-│   └── products.js    # Product catalog
-├── styles/            # Global styles
-│   └── globals.css    # Global CSS
-├── .env.example       # Environment example
-├── next.config.js     # Next.js config
-└── vercel.json        # Vercel config
+## Deployment (Free)
+Deploy instantly on **Vercel**:
+```bash
+npx vercel
 ```
 
-## Features Implemented
-
-- ✅ Responsive product grid
-- ✅ Shopping cart (localStorage)
-- ✅ Wishlist functionality
-- ✅ Email order confirmations (EmailJS)
-- ✅ Product filtering and sorting
-- ✅ Product detail modal
-- ✅ Toast notifications
-- ✅ Smooth animations
-- ✅ Mobile-friendly design
-- ✅ SEO-friendly structure
-
-## Troubleshooting
-
-### Emails not sending?
-1. Verify EmailJS Service ID, Template ID, and User ID in `.env.local`
-2. Check EmailJS Dashboard for service status
-3. Test email template in EmailJS Dashboard
-4. Ensure email is valid format in cart form
-
-### Build failing on Vercel?
-1. Check build logs in Vercel Dashboard
-2. Ensure all dependencies are listed in `package.json`
-3. Verify Node.js version is 18+ in Vercel Settings
-
-### Styles not loading?
-1. Clear `.next` folder and rebuild
-2. Check CSS imports in components
-3. Verify CSS module syntax if using modules
-
-## Contributing
-
-Feel free to fork this project and add your improvements!
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Support
-
-For issues and questions, please open an issue on [GitHub Issues](https://github.com/Hassan-Zahid-Khan-1/Bangles/issues)
+## Tech Stack
+- Next.js 14 (React)
+- CSS Modules + Global CSS
+- EmailJS for order notifications
+- Unsplash for product images
+- Coverr for hero video
+- LocalStorage for cart & wishlist persistence
