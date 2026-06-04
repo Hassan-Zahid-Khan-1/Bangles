@@ -375,12 +375,42 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
           }}
         >
           {[
-            { emoji:"🪙", label:"Gold",        bg:"#fdf3d8", href:"/shop?cat=Gold"       },
-            { emoji:"💎", label:"Gemstone",    bg:"#e8eeff", href:"/shop?cat=Gemstone"   },
-            { emoji:"🌸", label:"Traditional", bg:"#fde8f0", href:"/shop?cat=Traditional"},
-            { emoji:"🤍", label:"Pearl",       bg:"#f4f4f4", href:"/shop?cat=Pearl"      },
-            { emoji:"✨", label:"Kundan",      bg:"#fff6e0", href:"/shop?cat=Kundan"     },
-            { emoji:"🫧", label:"Glass",       bg:"#e0f5ff", href:"/shop?cat=Glass"      },
+            {
+              label:"Bracelets",
+              bg:"#fdf3d8",
+              href:"/shop?cat=Bracelets",
+              image:"categories/tulip.jpeg",
+            },
+            {
+              label:"Bangles",
+              bg:"#e8eeff",
+              href:"/shop?cat=Bangles",
+              image:"categories/bangles.jpg",
+            },
+            {
+              label:"Karas",
+              bg:"#fde8f0",
+              href:"/shop?cat=Karas",
+              image:"categories/karay.webp",
+            },
+            {
+              label:"Rings",
+              bg:"#f4f4f4",
+              href:"/shop?cat=Rings",
+              image:"categories/ring.jpeg",
+            },
+            {
+              label:"Lockets",
+              bg:"#fff6e0",
+              href:"/shop?cat=Lockets",
+              image:"categories/lockets.jpeg",
+            },
+            {
+              label:"Earrings",
+              bg:"#e0f5ff",
+              href:"/shop?cat=Earrings",
+              image:"categories/earings.jpeg",
+            },
           ].map((c, i) => (
             <Link
               key={i}
@@ -388,8 +418,12 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
               className="cat-link"
               style={{ animationDelay:`${i * 0.08}s` }}
             >
-              <div className="cat-circle" style={{ background:c.bg }}>{c.emoji}</div>
-              <span className="cat-name">{c.label}</span>
+              <div className="cat-image">
+                <img src={c.image} alt={c.label} />
+              </div>
+              <div className="cat-card-meta">
+                <span className="cat-name">{c.label}</span>
+              </div>
             </Link>
           ))}
         </div>
@@ -449,7 +483,7 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
             Museum-quality kundan bangles inspired by Mughal traditions.
             Only 50 numbered sets available — each certified by our master craftsmen.
           </p>
-          <Link href="/shop?cat=Kundan" className="btn-primary">Shop Kundan →</Link>
+          <Link href="/shop?cat=Karas" className="btn-primary">Shop Karas →</Link>
         </div>
       </div>
 

@@ -85,9 +85,9 @@ export default function Footer() {
           <div className="f-col">
             <h4>Shop</h4>
             <ul>
-              {["Gold","Gemstone","Traditional","Pearl","Kundan","Glass"].map(c=>(
-                <li key={c}><Link href={`/shop?cat=${c}`}>{c} Bangles</Link></li>
-              ))}
+                {['Bracelets','Bangles','Karas','Rings','Lockets','Earrings'].map(c=>(
+                  <li key={c}><Link href={`/shop?cat=${c}`}>{c}</Link></li>
+                ))}
             </ul>
           </div>
 
