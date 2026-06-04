@@ -85,10 +85,11 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
           margin-bottom:18px; animation: fadeIn 1s ease .3s both;
         }
         .hero-h1 {
-          font-family:var(--font-display); font-size:clamp(2.8rem,8vw,5.2rem);
-          font-weight:700; color:#fff; line-height:1.06;
+          font-family:var(--font-display); font-size:clamp(2.4rem,6vw,4.2rem);
+          font-weight:100; color:#fff; line-height:1.06;
           margin-bottom:22px; letter-spacing:-.02em;
           animation: fadeUp .9s ease .5s both;
+          opacity: 100;
         }
         .hero-h1 em { font-style:italic; color:var(--rose); }
         .hero-sub {
@@ -306,18 +307,15 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
         <div className="hero-overlay" />
 
         {/* Floating sparkles */}
-        <span className="sparkle" style={{ top:"22%", left:"8%",  animationDelay:"0s"   }}>✦</span>
-        <span className="sparkle" style={{ top:"35%", right:"7%", animationDelay:"1.2s" }}>✦</span>
-        <span className="sparkle" style={{ bottom:"28%",left:"14%",animationDelay:".6s" }}>✦</span>
+        
 
         <div className="hero-content">
-          <span className="hero-eyebrow">✦ New Collection 2025 ✦</span>
+         
           <h1 className="hero-h1">
-            Adorn Your <em>Story</em><br />With Every Bangle
+            Where Every <em>Bracelet</em><br />Tells a Beautiful Story
           </h1>
           <p className="hero-sub">
-            Handcrafted bangles that celebrate the feminine spirit — from traditional
-            kundan to contemporary glass stacks. Cash on delivery available.
+            Discover beautifully crafted jewelry designed to capture life's most precious moments. From classic heritage-inspired pieces to contemporary trends, our collections are made to be cherished today and treasured forever. Cash on Delivery available nationwide.
           </p>
           <div className="hero-btns">
             <Link href="/shop" className="btn-primary">Explore Collection</Link>

@@ -4,16 +4,16 @@
    ============================================ */
 
 :root {
-  --rose:       #f4a7b9;
-  --rose-deep:  #d4607a;
-  --blush:      #fce4ec;
-  --nude:       #f9ede8;
-  --gold:       #c9963a;
-  --gold-light: #f0c96a;
-  --charcoal:   #2a1f2e;
-  --offwhite:   #fdfaf8;
-  --lilac:      #c9afd4;
-  --muted:      #7a6a7a;
+  --rose:       #d4a574;
+  --rose-deep:  #8b6b5a;
+  --blush:      #f0e8e5;
+  --nude:       #faf8f6;
+  --gold:       #b38c8c;
+  --gold-light: #d4b5b0;
+  --charcoal:   #3d2f35;
+  --offwhite:   #faf8f6;
+  --lilac:      #c9a894;
+  --muted:      #9a8070;
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'DM Sans', system-ui, sans-serif;
@@ -193,12 +193,20 @@ body {
   justify-content: space-between;
 }
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: -0.02em;
   transition: color 0.3s ease;
+}
+.nav-logo-img {
+  width: 260px;
+  height: 80px;
+  object-fit: contain;
 }
 .nav-logo span {
   background: linear-gradient(135deg, var(--rose-deep), var(--gold));

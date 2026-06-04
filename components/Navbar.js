@@ -28,7 +28,7 @@ export default function Navbar({ cartCount, wishCount }) {
   const textCol  = solidBg ? "var(--charcoal)" : "#fff";
   const navBg    = solidBg ? "rgba(253,250,248,0.96)" : "transparent";
   const navBd    = solidBg ? "1px solid rgba(244,167,185,0.2)" : "none";
-  const navPad   = solidBg ? "12px 5%" : "22px 5%";
+  const navPad   = solidBg ? "10px 5%" : "22px 5%";
 
   const rootStyle = {
     padding: navPad,
@@ -45,7 +45,8 @@ export default function Navbar({ cartCount, wishCount }) {
       <nav className="nav-root" style={rootStyle}>
         <div className="nav-inner">
           <Link href="/" className="nav-logo" style={themeStyle}>
-            Bangle<span>Belle</span>
+            <img src="/EverUsbr.png" alt="BangleBelle logo" className="nav-logo-img" />
+          
           </Link>
 
           <ul className="nav-links">
