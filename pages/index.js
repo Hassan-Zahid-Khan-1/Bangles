@@ -465,7 +465,7 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
         <div className="ring" style={{ width:"500px",height:"500px", top:"-200px",right:"15%" }} />
         <div className="ring" style={{ width:"350px",height:"350px", bottom:"-140px",right:"30%" }} />
         <img
-          src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=900&q=65"
+          src="bracelete_t.webp"
           alt="Kundan bangles"
           className="promo-img"
         />
@@ -478,12 +478,11 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
           }}
         >
           <span className="promo-tag">LIMITED COLLECTION</span>
-          <h2 className="promo-h2">The <em>Kundan Royale</em><br />Collection is Here</h2>
+          <h2 className="promo-h2">The <em>EverUs</em><br />Bracelet Collection</h2>
           <p className="promo-p">
-            Museum-quality kundan bangles inspired by Mughal traditions.
-            Only 50 numbered sets available — each certified by our master craftsmen.
+           Crafted for couples who cherish every moment together. Our premium matching bracelets symbolize connection, commitment, and timeless style — designed to celebrate your story, from first dates to forever promises.
           </p>
-          <Link href="/shop?cat=Karas" className="btn-primary">Shop Karas →</Link>
+          <Link href="/shop?cat=Bracelets" className="btn-primary">Shop Bracelets →</Link>
         </div>
       </div>
 
