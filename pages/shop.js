@@ -186,8 +186,8 @@ export default function Shop({ addToCart, toggleWishlist, wishlist }) {
               <div className="m-cat">{modal.category}</div>
               <div className="m-name">{modal.name}</div>
               <div className="m-price">
-                ₹{modal.price.toLocaleString()}
-                {modal.originalPrice && <s>₹{modal.originalPrice.toLocaleString()}</s>}
+                Rs.{modal.price.toLocaleString()}
+                {modal.originalPrice && <s>Rs.{modal.originalPrice.toLocaleString()}</s>}
               </div>
               <div className="m-stars">
                 {"★".repeat(Math.round(modal.rating))} {modal.rating} ({modal.reviews} reviews)

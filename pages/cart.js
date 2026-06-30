@@ -9,9 +9,10 @@ export default function Cart({ cart, removeFromCart, updateQty, clearCart }) {
     name:"", phone:"", email:"", address:"", city:"", state:"", pincode:"", notes:""
   });
 
-  const total      = cart.reduce((a, i) => a + i.price * i.qty, 0);
-  const shipping   = total >= 999 ? 0 : 89;
-  const grandTotal = total + shipping;
+  const freeShippingTarget = 2000;
+  const total               = cart.reduce((a, i) => a + i.price * i.qty, 0);
+  const shipping            = total >= freeShippingTarget ? 0 : 250;
+  const grandTotal          = total + shipping;
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -177,13 +178,13 @@ export default function Cart({ cart, removeFromCart, updateQty, clearCart }) {
                 <img src={item.image} alt={item.name} className="c-img" />
                 <div className="c-info">
                   <div className="c-name">{item.name}</div>
-                  <div className="c-price">₹{item.price.toLocaleString()} each</div>
+                  <div className="c-price">Rs.{item.price.toLocaleString()} each</div>
                   <div className="qty-row">
                     <button className="qty-btn" onClick={()=>updateQty(item.id,item.qty-1)}>−</button>
                     <span className="qty-n">{item.qty}</span>
                     <button className="qty-btn" onClick={()=>updateQty(item.id,item.qty+1)}>+</button>
                     <span style={{ fontSize:".82rem", color:"var(--muted)", marginLeft:"8px" }}>
-                      = ₹{(item.price*item.qty).toLocaleString()}
+                      = Rs.{(item.price*item.qty).toLocaleString()}
                     </span>
                     <button className="rm-btn" onClick={()=>removeFromCart(item.id)}>✕</button>
                   </div>
@@ -198,20 +199,20 @@ export default function Cart({ cart, removeFromCart, updateQty, clearCart }) {
               {cart.map(i=>(
                 <div key={i.id} className="sum-row">
                   <span>{i.name} ×{i.qty}</span>
-                  <span>₹{(i.price*i.qty).toLocaleString()}</span>
+                  <span>Rs.{(i.price*i.qty).toLocaleString()}</span>
                 </div>
               ))}
               <div className="sum-row">
                 <span>Shipping</span>
-                <span>{shipping===0 ? <span style={{color:"green"}}>FREE</span> : `₹${shipping}`}</span>
+                <span>{shipping===0 ? <span style={{color:"green"}}>FREE</span> : `Rs.${shipping}`}</span>
               </div>
               <div className="sum-row total">
                 <span>Total</span>
-                <span>₹{grandTotal.toLocaleString()}</span>
+                <span>Rs.{grandTotal.toLocaleString()}</span>
               </div>
               {shipping>0 && (
                 <p style={{ fontSize:".76rem", color:"var(--muted)", marginBottom:"14px" }}>
-                  Add ₹{(999-total).toLocaleString()} more for free shipping
+                  Add Rs.{Math.max(0, freeShippingTarget - total).toLocaleString()} more for free delivery
                 </p>
               )}
               <div className="cod-box">
@@ -283,16 +284,16 @@ export default function Cart({ cart, removeFromCart, updateQty, clearCart }) {
             {cart.map(i=>(
               <div key={i.id} className="sum-row">
                 <span>{i.name} ×{i.qty}</span>
-                <span>₹{(i.price*i.qty).toLocaleString()}</span>
+                <span>Rs.{(i.price*i.qty).toLocaleString()}</span>
               </div>
             ))}
             <div className="sum-row">
               <span>Shipping</span>
-              <span>{shipping===0 ? <span style={{color:"green"}}>FREE</span> : `₹${shipping}`}</span>
+              <span>{shipping===0 ? <span style={{color:"green"}}>FREE</span> : `Rs.${shipping}`}</span>
             </div>
             <div className="sum-row total">
               <span>Grand Total</span>
-              <span>₹{grandTotal.toLocaleString()}</span>
+              <span>Rs.{grandTotal.toLocaleString()}</span>
             </div>
             <div className="cod-box" style={{marginTop:"18px"}}>
               <span className="cod-ic">🔒</span>

@@ -226,8 +226,8 @@ export default function Contact() {
           </p>
 
           {[
-            { icon: '📧', label: 'Email Us', value: 'hzk3903159@gmail.com' },
-            { icon: '💬', label: 'WhatsApp', value: '+92 300 000 0000' },
+            { icon: '📧', label: 'Email Us', value: 'everus2216@gmail.com' },
+            { icon: '💬', label: 'WhatsApp', value: '+92 3256547505' },
             { icon: '📍', label: 'Located In', value: 'Lahore, Punjab, Pakistan' },
             { icon: '🕐', label: 'Working Hours', value: 'Mon–Sat, 10am – 7pm PKT' },
           ].map((c, i) => (

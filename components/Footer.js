@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { useState } from "react";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaTiktok,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -70,16 +77,62 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div>
-            <div className="f-logo">Bangle<span>Belle</span></div>
+            <div className="f-logo"><span>Ever</span>Us</div>
             <p className="f-desc">
-              Where every bangle tells a story. Handcrafted with love, delivered with care — your go-to destination for exquisite bangles.
+             Every piece tells a story of love, elegance, and forever. Handcrafted with care, made to shine with you — welcome to EverUs Jewelry.
             </p>
-            <div className="f-socials">
-              {["📸","📘","🐦","▶️"].map((s,i)=>(
-                <a key={i} href="#" className="f-soc">{s}</a>
-              ))}
-            </div>
-          </div>
+          <div className="f-socials">
+  <a
+    href="https://www.instagram.com/everus.pk"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="f-soc"
+    aria-label="Instagram"
+  >
+    <FaInstagram />
+  </a>
+
+  <a
+    href="https://facebook.com/yourusername"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="f-soc"
+    aria-label="Facebook"
+  >
+    <FaFacebookF />
+  </a>
+
+  <a
+    href="https://x.com/yourusername"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="f-soc"
+    aria-label="X"
+  >
+    <FaXTwitter />
+  </a>
+
+  <a
+    href="https://youtube.com/@yourchannel"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="f-soc"
+    aria-label="YouTube"
+  >
+    <FaYoutube />
+  </a>
+
+  <a
+    href="https://www.tiktok.com/@everus2216"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="f-soc"
+    aria-label="TikTok"
+  >
+    <FaTiktok />
+  </a>
+</div>
+</div>
 
           {/* Shop links */}
           <div className="f-col">
@@ -124,7 +177,7 @@ export default function Footer() {
         </div>
 
         <div className="f-bottom">
-          <span>© 2025 BangleBelle. All rights reserved.</span>
+          <span>© 2026 EverUs. All rights reserved.</span>
           <div className="f-bottom-links">
             <a href="#">Privacy</a>
             <a href="#">Terms</a>

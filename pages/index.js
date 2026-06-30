@@ -339,14 +339,14 @@ export default function Home({ addToCart, toggleWishlist, wishlist }) {
       <div className="marquee-bar">
         <div className="marquee-track">
           {[
-            "Free Shipping on Orders ₹999+",
+            "Free Shipping on Orders 2000+",
             "Handcrafted with Love",
             "Cash on Delivery Available",
             "New Arrivals Every Week",
             "500+ Bangle Styles",
             "Artisan Made in South Asia",
           ].concat([
-            "Free Shipping on Orders ₹999+",
+            "Free Shipping on Orders 2000+",
             "Handcrafted with Love",
             "Cash on Delivery Available",
             "New Arrivals Every Week",
@@ -564,8 +564,8 @@ function ProductModal({ p, onClose, onAdd, onWish, isWishlisted }) {
           <div className="modal-cat">{p.category}</div>
           <div className="modal-name">{p.name}</div>
           <div className="modal-price">
-            ₹{p.price.toLocaleString()}
-            {p.originalPrice && <s>₹{p.originalPrice.toLocaleString()}</s>}
+            Rs.{p.price.toLocaleString()}
+            {p.originalPrice && <s>Rs.{p.originalPrice.toLocaleString()}</s>}
           </div>
           <div className="modal-stars">
             {"★".repeat(Math.round(p.rating))} {p.rating} ({p.reviews} reviews)

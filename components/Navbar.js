@@ -26,6 +26,7 @@ export default function Navbar({ cartCount, wishCount }) {
 
   const solidBg  = scrolled || !isHome;
   const textCol  = solidBg ? "var(--charcoal)" : "#fff";
+  const menuCol  = solidBg ? "var(--charcoal)" : "var(--rose-deep)";
   const navBg    = solidBg ? "rgba(253,250,248,0.96)" : "transparent";
   const navBd    = solidBg ? "1px solid rgba(244,167,185,0.2)" : "none";
   const navPad   = solidBg ? "10px 5%" : "22px 5%";
@@ -77,7 +78,9 @@ export default function Navbar({ cartCount, wishCount }) {
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
-              <span style={themeStyle} /><span style={themeStyle} /><span style={themeStyle} />
+              <span style={{ color: menuCol }} />
+              <span style={{ color: menuCol }} />
+              <span style={{ color: menuCol }} />
             </button>
           </div>
         </div>
